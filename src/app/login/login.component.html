@@ -1,0 +1,60 @@
+<!--Reactive-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="assets/img/nissan.png" class="img-fluid">
+        </div>
+        <div class="form-group col-md-8">
+            <!--Reactive Form-->
+            <hr>
+            <form [formGroup]="loginForm" (ngSubmit)="loginCredentia()">
+                <!--emailId-->
+                <div>
+                    <input type="text"
+                    placeholder="Enter login emailid"
+                    formControlName="emailId"
+                    required
+                    class="form-control"
+                    />
+                </div>
+                <!--EmailId Validation-->
+                <div *ngIf="isSubmitted && formControls.emailId.errors">
+                    <div *ngIf="formControls.emailId.errors.required"
+                    class="loginError">
+                        Enter valid username...!
+                    </div>
+                </div><br>
+                <!--password-->
+                <div>
+                    <input type="text"
+                    placeholder="Enter password"
+                    formControlName="password"
+                    required
+                    class="form-control"
+                    />
+                </div>
+                <!--EmailId Validation-->
+                <div *ngIf="isSubmitted && formControls.password.errors">
+                    <div *ngIf="formControls.password.errors.required"
+                    class="loginError">
+                        Enter valid password...!
+                    </div>
+                </div>
+                <br>
+                <!--Submit-->
+                <div>
+                    <button type="submit"
+                    class="btn btn-md btn-outlinr-primary">
+                <i class="fa fa-sign-in"></i>
+                Login
+                </button>
+                </div>
+                  <!--Displaying Error Msg-->
+                  <div *ngIf="error" class="loginError">
+                    {{error}}
+                  </div>
+            </form>
+        </div>
+
+    </div>
+</div>
